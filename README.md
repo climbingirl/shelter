@@ -4,7 +4,7 @@
 
 ## GitHub Pages
 
-[https://climbingirl.github.io/shelter/index.html#help](https://climbingirl.github.io/shelter/index.html#help)
+[https://climbingirl.github.io/shelter/index.html](https://climbingirl.github.io/shelter/index.html)
 
 ## Функциональность
   
