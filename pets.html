@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our pets</title>
+    <link rel="stylesheet" href="assets/styles/normalize.css" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+  </head>
+  <body>
+    <header class="header pets-page">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo">
+            <a href="index.html" class="logo-link">
+              <h1 class="logo__title">Cozy House</h1>
+              <div class="logo__subtitle">Shelter for pets in Boston</div>
+            </a>
+          </div>
+          <nav class="nav" id="nav">
+            <div class="nav-logo logo">
+              <h1 class="logo__title">Cozy House</h1>
+              <div class="logo__subtitle">Shelter for pets in Boston</div>
+            </div>
+            <ul class="nav-list">
+              <li class="nav-list__item">
+                <a class="nav-list__link" href="index.html"
+                  >About the shelter</a
+                >
+              </li>
+              <li class="nav-list__item">
+                <a class="nav-list__link nav-list__link_active" href="#"
+                  >Our pets</a
+                >
+              </li>
+              <li class="nav-list__item">
+                <a class="nav-list__link" href="index.html#help"
+                  >Help the shelter</a
+                >
+              </li>
+              <li class="nav-list__item">
+                <a class="nav-list__link" href="#contacts">Contacts</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="burger-menu" id="burger-menu">
+            <div class="burger-menu__line"></div>
+            <div class="burger-menu__line"></div>
+            <div class="burger-menu__line"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main pets-page">
+      <section class="our-friends" id="our-friends">
+        <div class="container">
+          <h3 class="our-friends__title title-h3">
+            Our friends who<br />
+            are looking for a house
+          </h3>
+          <div class="our-friends__inner">
+            <div class="our-friends__item" data-petsid="4">
+              <img
+                src="assets/img/pets-katrine.jpg"
+                alt="Cat Katrine"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Katrine</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="0">
+              <img
+                src="assets/img/pets-jennifer.jpg"
+                alt="Dog Jennifer"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Jennifer</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="2">
+              <img
+                src="assets/img/pets-woody.jpg"
+                alt="Dog Woody"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Woody</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="1">
+              <img
+                src="assets/img/pets-sophia.jpg"
+                alt="Dog Sophia"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Sophia</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="5">
+              <img
+                src="assets/img/pets-timmy.jpg"
+                alt="Cat Timmy"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Timmy</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="7">
+              <img
+                src="assets/img/pets-charly.jpg"
+                alt="Dog Charly"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Charly</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="3">
+              <img
+                src="assets/img/pets-scarlett.jpg"
+                alt="Dog Scarlett"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Scarlett</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+            <div class="our-friends__item" data-petsid="6">
+              <img
+                src="assets/img/pets-freddie.jpg"
+                alt="Cat Freddie"
+                class="our-friends__item-img"
+              />
+              <div class="our-friends__item-name">Freddie</div>
+              <button class="our-friends__item-btn btn-secondary">
+                Learn more
+              </button>
+            </div>
+          </div>
+          <div class="our-friends__pagination-box">
+            <div class="pagination__btn btn-circle" data-disabled><<</div>
+            <div class="pagination__btn btn-circle" data-disabled><</div>
+            <div class="pagination__btn pagination__btn_active btn-circle">
+              1
+            </div>
+            <div class="pagination__btn btn-circle">></div>
+            <div class="pagination__btn btn-circle">>></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="contacts">
+      <div class="footer-noise">
+        <div class="container">
+          <div class="footer__inner">
+            <div class="footer__col footer__col_1">
+              <h3 class="footer__col-title title-h3">
+                For questions and suggestions
+              </h3>
+              <div class="footer__col-info">
+                <a
+                  class="footer__col-info-link footer__col-info-link_email"
+                  href="mailto:email@shelter.com"
+                  >email@shelter.com</a
+                >
+              </div>
+              <div class="footer__col-info">
+                <a
+                  class="footer__col-info-link footer__col-info-link_phone"
+                  href="tel:+136745677554"
+                  >+13 674 567 75 54</a
+                >
+              </div>
+            </div>
+            <div class="footer__col footer__col_2">
+              <h3 class="footer__col-title title-h3">
+                We are waiting for your visit
+              </h3>
+              <div class="footer__col-info">
+                <a
+                  class="footer__col-info-link footer__col-info-link_location"
+                  href="https://goo.gl/maps/3ESoVvzMbnasa5zE7"
+                  target="_blank"
+                  >1 Central Street, Boston (entrance from the store)</a
+                >
+              </div>
+              <div class="footer__col-info footer__info-location">
+                <a
+                  class="footer__col-info-link footer__col-info-link_location"
+                  href="https://goo.gl/maps/3ESoVvzMbnasa5zE7"
+                  target="_blank"
+                  >18 South Park, London
+                </a>
+              </div>
+            </div>
+            <div class="footer__col footer__col_3">
+              <img
+                class="footer__col-img"
+                src="assets/img/footer-puppy.png"
+                alt="Puppy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="overlay" id="overlay"></div>
+    <script src="./assets/js/our-pets.js"></script>
+  </body>
+</html>

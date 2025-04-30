@@ -1,0 +1,309 @@
+const pets = [
+  {
+    id: 0,
+    name: "Jennifer",
+    img: "assets/img/pets-jennifer.jpg",
+    type: "Dog",
+    breed: "Labrador",
+    description:
+      "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+    age: "2 months",
+    inoculations: ["none"],
+    diseases: ["none"],
+    parasites: ["none"],
+  },
+  {
+    id: 1,
+    name: "Sophia",
+    img: "assets/img/pets-sophia.jpg",
+    type: "Dog",
+    breed: "Shih tzu",
+    description:
+      "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
+    age: "1 month",
+    inoculations: ["parvovirus"],
+    diseases: ["none"],
+    parasites: ["none"],
+  },
+  {
+    id: 2,
+    name: "Woody",
+    img: "assets/img/pets-woody.jpg",
+    type: "Dog",
+    breed: "Golden Retriever",
+    description:
+      "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
+    age: "3 years 6 months",
+    inoculations: ["adenovirus", "distemper"],
+    diseases: ["right back leg mobility reduced"],
+    parasites: ["none"],
+  },
+  {
+    id: 3,
+    name: "Scarlett",
+    img: "assets/img/pets-scarlett.jpg",
+    type: "Dog",
+    breed: "Jack Russell Terrier",
+    description:
+      "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
+    age: "3 months",
+    inoculations: ["parainfluenza"],
+    diseases: ["none"],
+    parasites: ["none"],
+  },
+  {
+    id: 4,
+    name: "Katrine",
+    img: "assets/img/pets-katrine.jpg",
+    type: "Cat",
+    breed: "British Shorthair",
+    description:
+      "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
+    age: "6 months",
+    inoculations: ["panleukopenia"],
+    diseases: ["none"],
+    parasites: ["none"],
+  },
+  {
+    id: 5,
+    name: "Timmy",
+    img: "assets/img/pets-timmy.jpg",
+    type: "Cat",
+    breed: "British Shorthair",
+    description:
+      "Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.",
+    age: "2 years 3 months",
+    inoculations: ["calicivirus", "viral rhinotracheitis"],
+    diseases: ["kidney stones"],
+    parasites: ["none"],
+  },
+  {
+    id: 6,
+    name: "Freddie",
+    img: "assets/img/pets-freddie.jpg",
+    type: "Cat",
+    breed: "British Shorthair",
+    description:
+      "Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.",
+    age: "2 months",
+    inoculations: ["rabies"],
+    diseases: ["none"],
+    parasites: ["none"],
+  },
+  {
+    id: 7,
+    name: "Charly",
+    img: "assets/img/pets-charly.jpg",
+    type: "Dog",
+    breed: "Jack Russell Terrier",
+    description:
+      "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
+    age: "8 years",
+    inoculations: ["bordetella bronchiseptica", "leptospirosis"],
+    diseases: ["deafness", "blindness"],
+    parasites: ["lice", "fleas"],
+  },
+];
+
+const HTML = document.querySelector("html");
+
+// menu
+
+const NAVIGATION_MENU = document.querySelector("#nav");
+const BURGER_MENU = document.querySelector("#burger-menu");
+const OVERLAY = document.querySelector("#overlay");
+
+function toggleOverlay() {
+  OVERLAY.classList.toggle("overlay_active");
+  HTML.classList.toggle("no-scroll");
+}
+
+function toggleMenu(e) {
+  if (
+    (e.target.classList.contains("nav-list__link") &&
+      e.currentTarget.classList.contains("nav_open")) ||
+    e.target.closest(".burger-menu") ||
+    e.target.classList.contains("overlay")
+  ) {
+    BURGER_MENU.classList.toggle("burger-menu_active");
+    NAVIGATION_MENU.classList.toggle("nav_open");
+    toggleOverlay();
+  }
+}
+
+NAVIGATION_MENU.addEventListener("click", toggleMenu);
+BURGER_MENU.addEventListener("click", toggleMenu);
+OVERLAY.addEventListener("click", toggleMenu);
+
+// carousel
+
+const CAROUSEL = document.querySelector("#carousel");
+const CAROUSEL_ILEM_LEFT = document.querySelector("#carousel__item-left");
+const CAROUSEL_ILEM_RIGHT = document.querySelector("#carousel__item-right");
+const CAROUSEL_ILEM_ACTIVE = document.querySelector("#carousel__item-active");
+const CAROUSEL_BTN_LEFT = document.querySelector("#carousel__btn-left");
+const CAROUSEL_BTN_RIGHT = document.querySelector("#carousel__btn-right");
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const createCardTemplate = (index) => {
+  const card = document.createElement("div");
+  card.classList.add("our-friends__item");
+  card.dataset.petsid = `${pets[index].id}`;
+  card.innerHTML = `<img src="${pets[index].img}" alt="${pets[index].type} ${pets[index].name}" class="our-friends__item-img">
+                    <div class="our-friends__item-name">${pets[index].name}</div>
+                    <button class="our-friends__item-btn btn-secondary">Learn more</button>`;
+  return card;
+};
+
+function createCarouselSlide(itemName, activeCardsIdList) {
+  const uniqueIdList = [];
+
+  for (let i = 0; i < activeCardsIdList.length; i++) {
+    let uniqueId = getRandomIntInclusive(0, 7);
+    while (
+      activeCardsIdList.includes(uniqueId) ||
+      uniqueIdList.includes(uniqueId)
+    ) {
+      uniqueId = getRandomIntInclusive(0, 7);
+    }
+    uniqueIdList.push(uniqueId);
+    const card = createCardTemplate(uniqueId);
+    itemName.append(card);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const htmlWidth = HTML.offsetWidth;
+  const slidesNumber = htmlWidth < 768 ? 1 : htmlWidth < 1280 ? 2 : 3;
+  let activeCardsIdList = [4, 0, 2];
+  activeCardsIdList.length = slidesNumber;
+  activeCardsIdList.forEach((id) =>
+    CAROUSEL_ILEM_ACTIVE.append(createCardTemplate(id))
+  );
+  createCarouselSlide(CAROUSEL_ILEM_LEFT, activeCardsIdList);
+  createCarouselSlide(CAROUSEL_ILEM_RIGHT, activeCardsIdList);
+
+  const PETS_CARDS = document.querySelectorAll(".our-friends__item");
+  PETS_CARDS.forEach((card) => {
+    card.addEventListener("click", togglePopupCard);
+  });
+});
+
+function moveCarouselRight() {
+  CAROUSEL.classList.add("transition-right");
+  CAROUSEL_BTN_LEFT.removeEventListener("click", moveCarouselLeft);
+  CAROUSEL_BTN_RIGHT.removeEventListener("click", moveCarouselRight);
+}
+
+function moveCarouselLeft() {
+  CAROUSEL.classList.add("transition-left");
+  CAROUSEL_BTN_LEFT.removeEventListener("click", moveCarouselLeft);
+  CAROUSEL_BTN_RIGHT.removeEventListener("click", moveCarouselRight);
+}
+
+CAROUSEL_BTN_RIGHT.addEventListener("click", moveCarouselRight);
+CAROUSEL_BTN_LEFT.addEventListener("click", moveCarouselLeft);
+
+CAROUSEL.addEventListener("animationend", (animationEvent) => {
+  let changedItem;
+  if (animationEvent.animationName === "move-right") {
+    CAROUSEL.classList.remove("transition-right");
+    changedItem = CAROUSEL_ILEM_RIGHT;
+    CAROUSEL_ILEM_ACTIVE.innerHTML = CAROUSEL_ILEM_RIGHT.innerHTML;
+  } else {
+    CAROUSEL.classList.remove("transition-left");
+    changedItem = CAROUSEL_ILEM_LEFT;
+    CAROUSEL_ILEM_ACTIVE.innerHTML = CAROUSEL_ILEM_LEFT.innerHTML;
+  }
+
+  const activeCardsIdList = [];
+  for (let i = 0; i < CAROUSEL_ILEM_ACTIVE.children.length; i++) {
+    activeCardsIdList.push(+CAROUSEL_ILEM_ACTIVE.children[i].dataset.petsid);
+  }
+
+  changedItem.innerHTML = "";
+  createCarouselSlide(changedItem, activeCardsIdList);
+
+  CAROUSEL_BTN_LEFT.addEventListener("click", moveCarouselLeft);
+  CAROUSEL_BTN_RIGHT.addEventListener("click", moveCarouselRight);
+
+  const PETS_CARDS = document.querySelectorAll(".our-friends__item");
+  PETS_CARDS.forEach((card) => {
+    card.addEventListener("click", togglePopupCard);
+  });
+});
+
+// popup
+
+const PETS_CARDS = document.querySelectorAll(".our-friends__item");
+const OUR_FRIENDS_EL = document.querySelector("#our-friends");
+
+function createCardPopup(id) {
+  const popup = document.createElement("div");
+  popup.classList.add("our-friends-popup__overlay");
+  popup.innerHTML = `<div class="our-friends-popup">
+    <div class="our-friends-popup__btn btn-circle"></div>
+    <div class="our-friends-popup__inner">
+            <img class="our-friends-popup__img" src="${pets[id].img}" alt="${pets[id].type} ${pets[id].name}">
+        <div class="our-friends-popup__info">
+            <h3 class="our-friends-popup__title title-h3">${pets[id].name}</h3>
+            <div class="our-friends-popup__subtitle">${pets[id].type} ${pets[id].breed}</div>
+            <p class="our-friends-popup__text">${pets[id].description}</p>
+            <ul class="our-friends-popup__list">
+                <li class="our-friends-popup__list-item">
+                    <span>Age: </span>2${pets[id].age}
+                </li>
+                <li class="our-friends-popup__list-item">
+                    <span>Inoculations: </span>${pets[id].inoculations}
+                </li>
+                <li class="our-friends-popup__list-item">
+                    <span>Diseases: </span>${pets[id].diseases}
+                </li>
+                <li class="our-friends-popup__list-item">
+                    <span>Parasites: </span>${pets[id].parasites}
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>`;
+  return popup;
+}
+
+function togglePopupCard(event) {
+  const popup = createCardPopup(event.currentTarget.dataset.petsid);
+  OUR_FRIENDS_EL.append(popup);
+  HTML.classList.toggle("no-scroll");
+
+  const CLOSE_POPUP_BTN = document.querySelector(".our-friends-popup__btn");
+  const POPUP_OVERLAY = document.querySelector(".our-friends-popup__overlay");
+  const POPUP = document.querySelector(".our-friends-popup");
+
+  CLOSE_POPUP_BTN.addEventListener("click", () => {
+    OUR_FRIENDS_EL.lastChild.remove();
+    HTML.classList.toggle("no-scroll");
+  });
+
+  POPUP.addEventListener("mouseout", () => {
+    CLOSE_POPUP_BTN.classList.add("our-friends-popup__btn_hover");
+  });
+
+  POPUP.addEventListener("mouseover", () => {
+    CLOSE_POPUP_BTN.classList.remove("our-friends-popup__btn_hover");
+  });
+
+  POPUP_OVERLAY.addEventListener("click", (e) => {
+    if (e.currentTarget === e.target) {
+      POPUP_OVERLAY.remove();
+      HTML.classList.toggle("no-scroll");
+    }
+  });
+}
+
+PETS_CARDS.forEach((card) => {
+  card.addEventListener("click", togglePopupCard);
+});
